@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  .container {
+    position: relative;
+    text-align: center;
+    /* justify-content: center; */
+  }
+  .container img {
+    height: 200px;
+    width: 100%;
+  }
+  .akshaypatra {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 200%;
+    font-weight: bold;
+  }
+  .hightech {
+    text-align: center;
+  }
+  .card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cards {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    text-align: center;
+    width: 55%;
+    font-size: 200%;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card img {
+    /* height: auto; */
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: -5px 11px 11px 0px rgb(16 110 0 / 71%);
+  }
+ 
+
+  @media (max-width: 700px) {
+    .card-container {
+      flex-direction: column;
+    }
+    .card {
+      width: 100%;
+    }
+  }
+  .fixed-bg {
+    background-image: url("../image/fresh-green-lettuce.jpg");
+    min-height: 415px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .grow {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .leaf-bg {
+    /* background-image: url("./logo-leaf2-free-img.png"); */
+
+    /* background-position: centre left; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .leaf-bg img{
+    opacity: 0.2;
+  }
+  .middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .font-color {
+    color: #4e7126;
+    /* font-size: 200%; */
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 40vh; */
+    padding: 4rem 0;
+    /* width: 100%; */
+    background-color: #f8fff0;
+    font-size: 3.4rem;
+  }
+ .getitnow{
+    margin: 10px;
+    padding: 5%;
+    border-radius:15px;
+    border: none;
+    background-color: #047E00;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+.random {
+    
+    width: 100%;
+    gap: 3rem;
+}
+.random2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+.text {
+    width: 40%;
+}
+.text > h2 {
+    font-size: 2.4rem;
+    color: #4e7126;
+}
+
+.logo-leaf {
+    position: absolute;
+    width: 30%;
+    left: 0;
+    opacity: 0.2;
+}
+
+.img {
+    width: 27%;
+}
+@media (max-width:678px){
+    .random2{
+        flex-direction: column;
+    }
+    .img{
+        width: 30%;
+    }
+}
+@media (min-width: 800px) {
+  .nav-main {
+    max-width: 1170px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav1-main {
+    max-width: 1170px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav-bar {
+    padding: 0;
+  }
+
+  .fa-bars {
+    display: none;
+  }
+
+  .menu {
+    height: auto;
+    display: flex;
+  }
+
+  .menu a {
+    padding: .5rem;
+    margin: 0 .5rem;
+    letter-spacing: 2px;
+  }
+
+  .menu a:hover {
+    text-decoration-color: darkgreen;
+  }
+
+  .menu1 {
+    height: auto;
+    display: flex;
+  }
+
+  .menu1 a {
+    padding: .5rem;
+    margin: 0 .5rem;
+    letter-spacing: 2px;
+  }
+
+  .menu1 a:hover {
+    text-decoration-color: darkgreen;
+  }
+}

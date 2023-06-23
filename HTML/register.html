@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/register.css">
+</head>
+<body>
+    <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
+        <!-- <form name="registration_form" id="registration_form" method="get"> -->
+        <div class="container">
+            <div class=""><img src="../image/logo.png" style="height:40px" class="img"></div>
+            <div class="brand-title">EraVan</div>
+            <div class="inputs">
+              <label class="label">EMAIL</label>
+              <input  class="inputr" type="email"  id="email" placeholder="example@test.com" />
+              <label class="label">PASSWORD</label>
+              <input class="inputr" type="password"  id="password" placeholder="Min 6 charaters long" />
+              <button type="button" id="register" class="buttonr">Register Now</button>
+             <a href=login.html><button type="button" class="buttonr">Login</button></a></a>
+            </div>
+        </div> 
+     <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+  
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+      apiKey: "AIzaSyCKeDn6zyWGWBB_19C6hT8Q6-E_LMWiOkc",
+      authDomain: "emailveri-4595f.firebaseapp.com",
+      projectId: "emailveri-4595f",
+      storageBucket: "emailveri-4595f.appspot.com",
+      messagingSenderId: "502177234374",
+      appId: "1:502177234374:web:5fe2bd479a138e7d6cc6c7",
+      measurementId: "G-VVNY4270N4"
+     };
+  
+  
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        console.log(app);
+      let dspEmail = document.getElementById("displayEmail");
+      let status = document.getElementById("status");
+      
+        
+  
+        //----- New Registration code start	  
+          document.getElementById("register").addEventListener("click", function() {
+            var email =  document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            //For new registration
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              // Signed in 
+              const user = userCredential.user;
+              console.log(user);
+              alert("Registration successfully!!");
+           sendEmailVerification(auth.currentUser)
+           .then((userCredential) =>{
+          alert("Email verification link sent")
+          window.location = './login.html';
+  
+           })
+              // ...
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              // ..
+              console.log(errorMessage);
+              alert(error); 
+            });		  		  
+        });
+       
+       
+  
+      </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactForm</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,800&display=swap');
+        .mainback{
+            width: 100vw;
+    height: 100vh;
+    background-color: black;
+    /*  */
+        }
+.main{
+    width: 96vw;
+    height: 95vh;
+    /* background-color: rgb(93, 246, 190); */
+    background-color: #00183c;
+    display: flex;
+    margin: 1vw;
+    /* border-radius: 30px; */
+    z-index: 1;
+    
+}
+.content{
+    width: 50vw;
+    height: 95vh;
+    background-color: rgb(255, 255, 255);
+    border-radius:  25px  0 0 25px ;
+   justify-content: center;
+   align-items: center;
+   margin-left: 10%;
+
+
+
+}
+.pageTitle{
+    /* position: relative; */
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-left:  15% ;
+    color:#00183c;
+  }
+  .secondaryTitle{
+    font-size:1.7rem;;
+    /* color:rgb(1, 49, 18); */
+    color:#00183c;
+    margin-left: 50px;
+font-weight: bolder;
+font-family: 'Poppins', sans-serif;
+  }
+  .formEntry {
+    display: block;
+    margin: 30px auto;
+  
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
+    /* border: 5px solid rgb(2, 76, 25); */
+    border-radius: 25px;
+  }
+  .name {
+    background-color: #ebebeb;
+    color: #090909;
+    height: 3vh;
+    width: 20vw;
+    border: 5px solid #00183c;;
+    border-radius: 25px;
+  }
+  .name:hover {
+    /* border: 5px solid rgb(47, 42, 145); */
+  
+    width: 25vw;
+    transition: ease 0.5s;
+    border-radius: 25px;
+  }
+  .email {
+    background-color: #ebebeb;
+    color: rgb(9, 9, 9);
+    width: 20vw;
+    height: 3vh;
+    border: 5px solid #00183c;;
+    border-radius: 25px;
+  }
+  .email:hover {
+    /* border: 5px solid rgb(47, 42, 145); */
+    /* height: 60px; */
+    width: 25vw;
+    transition: ease 0.5s;
+    border-radius: 25px;
+  }
+  .submit {
+    position: relative;
+    width: 23vw;
+    height: 8vh;
+    color: white;
+    background-color:#00d4ef;
+    font-size: 20px;
+    position: absolute;
+    right:  260;
+    bottom:   80;
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+    margin-left: 4.5% ;
+
+  }
+  
+  .submit:hover {
+  background-color:#00183c;
+  color:white;
+    transform: translateY(-3px);
+    width: 30vw;
+    position: absolute;
+    right:  200;
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+    margin-left: 1%;
+  }
+.photo{
+    width: 70vw;
+    height: 95vh;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    /* margin-left: 10%; */
+    margin-right: 10%;
+    border-radius: 0 25px 25px 0px;
+}
+.cphoto{
+    height: 95vh;
+    width: 48vw;
+
+}
+ .formerror{
+    /* position: relative; */
+     /* margin-top: -13%; */
+    color: red;
+    /* margin-left: 90%; */
+} 
+    </style>
+</head>
+<body class="main">
+
+    <div class="main">
+        <div class="content">
+            <form action="#" name="myform" onsubmit="return validateForm()"  >
+                <div class="pageTitle title">ERAVAN.IN</div>
+                <div class="secondaryTitle title">Providing one stop solution</div>
+                <div id="name1">  <input type="text" name="fname"  class="name formEntry"    id="name" placeholder="Name" />            <span class="formerror" > </span> </div> 
+                <div id="email1"> <input type="text" name="femail" class="email formEntry"  id="email" placeholder="Email"/> <span class="formerror"></span> </div>
+              <div id="phone1">   <input type="text" name="fphone" class="email formEntry"  id="phone" placeholder="Phone Number"/><span class="formerror"> </span> </div>
+               <div id="buy1">  <input type="text" name="fbuy" class="email formEntry"  id="buy" placeholder="BUY/SELL"/> <span class="formerror"> </div>
+               <div id="bs1">  <input type="text" name="fbs" class="email formEntry"  id="business" placeholder="Business"/> <span class="formerror"> </spanclass=> </div>
+                <div id="bsname1"> <input type="text" name="fbsname" class="email formEntry"  id="businessname" placeholder="Businessname"/> <span class="formerror"> </span>  </div>
+                <input  class="submit" type="submit"   id='submit' />
+                <!-- <textarea class="message formEntry" id="feedback" placeholder="Address"></textarea> -->
+            </form>
+        </div>
+        <div class="photo">
+        <img src="../image/life1.png" alt="life" class="cphoto" >
+        </div>
+    </div>
+</body>
+<script>
+  function seterror(id, error){
+    //sets error inside tag of id 
+    element = document.getElementById(id);
+    // alert(element); 
+    var cp =    element.getElementsByClassName('formerror')[0];
+    // console.log( car);
+     cp.innerHTML = error;
+    setTimeout(() => {
+      // console.log("cp")
+      cp.innerHTML = "";
+    },2000)
+    }
+   
+     function validateForm(){
+      // alert("step1")
+        var returnval = true;    
+        var name = document.forms['myform']["fname"].value;
+        var email = document.forms['myform']["femail"].value;
+        var phone= document.forms['myform']["fphone"].value;
+        var buy = document.forms['myform']["fbuy"].value;
+        var bs = document.forms['myform']["fbs"].value;
+        var bsname = document.forms['myform']["fbsname"].value;
+        var contactno =phone.length;
+        // alert(name);
+        // alert(email)
+        // if(name.length == 0)
+        // {
+        //   alert("")
+        //   seterror("name1","*Length of name cannot be zero!");
+        //   returnval = false;
+        // }
+        if(name.length<3)
+        {
+          // alert("short")
+        seterror("name1", "Length of name is too short");
+        return false;
+        }
+        //  alert("email")
+        if(!email.toString().includes('@'))
+        {
+        // alert("email")
+        seterror("email1", "Invalid Email");
+        return false;
+        }
+        if(contactno != 10)
+        {
+          console.log(contactno);
+
+          seterror("phone1","Phone no is not right");
+          return false;
+        }
+         if(buy.length<3)
+        {
+          // alert("short")
+        seterror("buy1", "Length of name is too short");
+        return false;
+        }
+        if(bs.length<2)
+        {
+          // alert("short")
+        seterror("bs1", "Length of name is too short");
+        return false;
+        }
+        if(bsname.length<2)
+        {
+          // alert("short")
+        seterror("bsname1", "Length of name is too short");
+        return false;
+        }
+        }
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js'
+  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
+      
+        const firebaseConfig = {
+    apiKey: "AIzaSyDR_-2wxBnn-sAxwzJowY5L93pSHfwacKg",
+    authDomain: "contactform-abeaa.firebaseapp.com",
+    projectId: "contactform-abeaa",
+    storageBucket: "contactform-abeaa.appspot.com",
+    messagingSenderId: "64446712842",
+    appId: "1:64446712842:web:f3d73fbcada4543b1163f3",
+    measurementId: "G-645V0T6VQN"
+  };
+                //INTIALISE DATABASE
+                              initializeApp(firebaseConfig);//initilise fire base kerne ke liye
+                              const root = getDatabase();
+                               let id= Date.now();
+                                                            
+                                //WRITE OR TAKE VALUE IN DATABASE
+                                function writeUserData(n,p,e,b,bs,bsn) {
+
+                              
+                                // set(ref(root,'user/' + userId),{
+                                set(ref(root, 'users/'+id ), {
+                                  name : n,
+                                  phone: p,
+                                    email: e,
+                                   
+                                   buy:b,
+                                 business:bs,
+                                 businessname:bsn
+                                })
+                           
+                           
+                           
+                           
+                           .then(() => {
+                         // Data saved successfully!
+                         console.log("done")
+                        //   alert("DONE !  YOUR FORM HAS BEEN SUBMITTED");
+                         window.location.href = 'successful.html'; 
+                           
+                       })
+                       .catch((error) => {
+                       console.log(error);
+                       alert("error ")
+                       });
+                              }
+                            
+                                                         //TO SAVE THE DATA AFTER CLICKING ON SIGN UP BUTTON 
+                                                                                            submit.addEventListener('click',(e) => {
+                                                                                                // e.preventdefault();
+                                                                                                  e.preventDefault()
+                                                                                        
+                                                                                              var name5 = document.getElementById('name').value;
+                                                                                              var phone5 = document.getElementById('phone').value;
+                                                                                            var email5 = document.getElementById('email').value;
+                                                                                            var buy5 = document.getElementById('buy').value;
+                                                                                            var business5 = document.getElementById('business').value;
+                                                                                            var businessname5 = document.getElementById('businessname').value;
+                                                                                         
+                                                                                            var car1 = name5.length;
+                                                                                            var car2 = phone5.length;
+                                                                                            var car3 = email5.length;
+                                                                                            var car4 = buy5.length;
+                                                                                            var car5 = business5.length;
+                                                                                            var car6 = businessname5.length;
+                                                                                            
+                                                                                            if(car1>3 && (car2==10) && car3>2 && car4>2  && car5>2 && car6>2 )
+                                                                                            {
+                                                                                            
+                                                                                              writeUserData(name5,phone5,email5,buy5,business5,businessname5);
+                                                                                            }
+                                                                                            else{
+                                                                                              alert("Please fill all the details carefully")
+                                                                                            }
+                                                                                              });
+</script>
+</html>
+</html>

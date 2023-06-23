@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 3fr 1.5fr;
+            /* number of columns using   repeat()  function  */
+            /* grid-template-columns: repeat(2, auto); */
+        }
+        .item{
+            background-color: white;
+            /* border: 1px solid black; */
+            margin: 1px 3px 0px 0px;
+            /* height: 100vh;
+            overflow-y: scroll; */
+            
+        }
+        #left-sidebar{
+            color: #047e00;
+        }
+        .product {
+            padding: 0.6em;
+            font-size: 1.5rem;
+            margin: 0.5em 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #047e00;
+            border-radius: 0px 10px 10px 0px;
+            color: white;
+        }
+        .cropName{
+            /* border: 0.5px solid red; */
+            margin-bottom: 2px;
+            padding: 5px;
+            cursor: pointer;  
+            height: 30px;
+            transition: height 0.5s ease; 
+        }
+        .cropName:hover{
+            /* height: 40px; */
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 15px 0;
+            border: 0.5px solid #047e00;
+            border-radius: 0px 10px 10px 0px;
+            background-color: #047e00;
+            color: white;
+            text-decoration: double;
+        }
+        .right-sidebar{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card{
+            margin-top: 150px;
+            border: 1px dashed black;
+            width: 75%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .btns {
+            display: inline-flex;
+            flex-direction: column;
+            margin: auto;
+            align-items: center;
+            width: 70%;
+        }
+        .btns button{
+            font-size: large;
+            background-color: #047e00;
+            color: white;
+            width: 100%;
+            margin: 3px 0px;
+            padding: 3px 0px;
+            border: 0;
+            border-radius: 10px;
+            /* height: 30px; */
+        }
+        .btns button:hover{
+            background-color: #064b04;
+            /* font-weight: bold; */
+            font-style: oblique;
+        }
+        .card p{
+            color: #047e00;
+            font-size:xx-large;
+        }
+        .card-img{
+            height: 200px;
+            width: 200px;
+            margin: auto;
+
+        }
+        .data {
+        /* border: 2px solid black; */
+        width: 739px;
+        height: auto;
+      }
+      table {
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        width: 739px;
+      }
+      table,
+      th,
+      td {
+        padding: 10px;
+      }
+      tr:hover {
+        background-color: rgb(0, 129, 47, 0.5);
+        color: white;
+      }
+        </style>
+        
+</head>
+<body>
+  </div>
+    <div class="container">
+        <div class="item" id="left-sidebar">
+            <div class="product">Products</div>
+        </div>
+        <div>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <br> <br>
+            <div class="data">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Retail Price</th>
+                      <th>Wholesale Price</th>
+                      <th>Weeks High</th>
+                      <th>Weeks Low</th>
+                    </tr>
+                  </thead>
+                  <tbody id="priceTable">
+                  </tbody>
+                </table>
+              </div>
+        </div>
+        <div class="right-sidebar">
+            <div class="card">
+                <p id="prod-name">Italian Basil</p>
+                <div class="card-img">
+                    <img src="Price Trend Images/Italian Basil.jpg" alt="Image Not Found" id="prod-img"><br>
+                </div>
+               <div class="btns">
+                    <button onclick="sellNow()">Buy Now</button>
+                    <button onclick="sellNow()">Sell Now</button>
+               </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>

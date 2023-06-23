@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/register.css">
+    <style>
+        .buysellcontainer{
+            background-image: linear-gradient(rgb(201, 200, 255) rgb(93, 34, 255));
+            width: 50vw;
+            height: 50%;
+            position: fixed;
+            top:30%;
+            right: 30%;
+            background-color: blueviolet;
+
+           
+        }
+        .buysell{
+           position: relative;
+           top:30%;
+           /* right:2%; */
+           left: 7%;
+           font-size: 2rem;
+           color: red;
+           font-weight: bolder;
+           padding: 3%;
+        }
+
+      
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 5%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 2%;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 20px;
+}
+
+  </style>
+</head>
+<body onload="myFunction()">
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
+        <div class="container">
+            <div class=""><img src="../image/logo.png" style="height:40px" class="img"></div>
+            <div class="brand-title">EraVan</div>
+            <div class="inputs">
+              <label class="label">EMAIL</label>
+              <input  class="inputr" type="email"  id="email" placeholder="example@test.com" />
+              <label class="label">PASSWORD</label>
+              <input class="inputr" type="password"  id="password" placeholder="Min 6 charaters long" />
+              <button type="button" id="register" class="buttonr">Register Now</button>
+             <a href=login.html><button type="button" class="buttonr">Login</button></a></a>
+            </div>
+    
+    
+     </div> 
+    </div>
+  
+  </div>
+    <div class="buysellcontainer">
+       <button id="buysell" class=buysell >I WANT TO BUY</button>
+       <button id="buysell" class=buysell >I WANT TO SELL</button>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        function myFunction() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        
+          </script>
+          <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+      
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          const firebaseConfig = {
+          apiKey: "AIzaSyCKeDn6zyWGWBB_19C6hT8Q6-E_LMWiOkc",
+          authDomain: "emailveri-4595f.firebaseapp.com",
+          projectId: "emailveri-4595f",
+          storageBucket: "emailveri-4595f.appspot.com",
+          messagingSenderId: "502177234374",
+          appId: "1:502177234374:web:5fe2bd479a138e7d6cc6c7",
+          measurementId: "G-VVNY4270N4"
+        };
+      
+      
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const auth = getAuth();
+            console.log(app);
+          let dspEmail = document.getElementById("displayEmail");
+          let status = document.getElementById("status");
+          
+            
+      
+            //----- New Registration code start	  
+              document.getElementById("register").addEventListener("click", function() {
+                var email =  document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                //For new registration
+                createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed in 
+                  const user = userCredential.user;
+                  console.log(user);
+                  alert("Registration successfully!!");
+               sendEmailVerification(auth.currentUser)
+               .then((userCredential) =>{
+              alert("Email verification link sent")
+              window.location = './login.html';
+      
+               })
+                  // ...
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // ..
+                  console.log(errorMessage);
+                  alert(error); 
+                });		  		  
+            });
+           
+           
+      
+          </script>
+      </html>
+</body>
+</html>

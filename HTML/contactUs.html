@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/contactUs.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <div class="box"> 
+        <div class="form" method="POST">
+            <h2>Contact Us</h2>
+            <div class="inputBox">
+                <input type="text" required="required" id="name" autocomplete="off" autofocus>
+                <span>Name</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="email" required="required" id="email" autocomplete="off" autofocus>
+                <span>Email</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" id="mobile-no" autocomplete="off" autofocus>
+                <span>Mobile No</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" id="land-address" autocomplete="off">
+                <span>Address of Land</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" id="size-of-land">
+                <span>Size of Land</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="description">
+                <span>Description</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <a href="#">Forgot Password ?</a>
+                <a href="#">SignUp</a>
+            </div>
+            <!-- <div class="inputBox">
+                <input type="text-area" required="required">
+                <textarea name="description" id="" cols="42" rows="2">Description</textarea>
+                <span>Description</span>
+                <i></i>
+            </div> -->
+            <input type="submit" value="Get It Now" onclick="sendMail()">
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        
+        function sendMail(){
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile-no').value;
+            const address = document.getElementById('land-address').value;
+            const size = document.getElementById('size-of-land').value;
+            const description = document.getElementById('description').value;
+            Email.send({
+                Host : "smtp25.elasticemail.com",
+                Username : "ravidemo3@gmail.com",
+                Password : "9855FD995E202093BCCAF829B431E5B59125",
+                To : "info.eravan@gmail.com",
+                From : "ravidemo3@gmail.com",
+                Subject : "New Request",
+                Body : `<h1>Name: ${name} <br/> Email: ${email} <br/> 
+                            Mobile No: ${mobile} <br/> Address: ${address}<br/>
+                            Size: ${size} <br/>
+                            Description: ${description}</h1>`
+            }).then((message) =>{
+                alert("E-mail sent successfully. Check your inbox/spam!");
+                location.href="https://eravan.in";
+            } )
+                
+        }
+        
+    </script>
+</body>
+</html>

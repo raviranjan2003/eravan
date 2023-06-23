@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+	<!-- Bootstrap theme -->
+
+	<title>login</title>
+	<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+input {
+  caret-color: red;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  overflow: hidden;
+  font-family: poppins;
+}
+
+.container {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color:#00326A;
+  letter-spacing: 1px;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+.err_message {
+  color: red;
+  font-size: 0.8rem;
+}
+
+button {
+  color: white;
+  margin-top: 20px;
+  color:rgb(210,169,255);
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
+</head>
+<body>
+	
+
+	<form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data" >
+		<div class="container">
+      <div class=""><img src="../image/logo.png" style="height:40px" class="img"></div>
+      <div class="brand-title">EraVan</div>
+			<!-- <div>
+        <h1>Email</h1><span id="displayEmail">none</span>
+        <h2>Status</h2><span id="status">none</span>
+      </div> -->
+			<div class="inputs">
+			  <label>EMAIL</label>
+			  <input type="email"  id="login_email" placeholder="example@test.com" />
+        <p id="err_message" class="err_message"></p>
+			  <label>PASSWORD</label>
+			  <input type="password"  id="login_password" placeholder="Min 6 charaters long" />
+			  <button type="button" id="login">Login</button>
+			</div>
+		</div> 
+	</form>
+
+</body>
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+	  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyCKeDn6zyWGWBB_19C6hT8Q6-E_LMWiOkc",
+    authDomain: "emailveri-4595f.firebaseapp.com",
+    projectId: "emailveri-4595f",
+    storageBucket: "emailveri-4595f.appspot.com",
+    messagingSenderId: "502177234374",
+    appId: "1:502177234374:web:5fe2bd479a138e7d6cc6c7",
+    measurementId: "G-VVNY4270N4"
+  };
+
+
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	  const auth = getAuth();
+    let dspEmail = document.getElementById("displayEmail");
+    let status = document.getElementById("status");
+    
+	  //----- Login code start	  
+	  document.getElementById("login").addEventListener("click", function() {
+		  var email =  document.getElementById("login_email").value;
+		  var password = document.getElementById("login_password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		  const user = userCredential.user;
+		   console.log(user);
+      if(user.emailVerified)
+      {
+        alert('Email verified!')
+        if(email=="2140147@sliet.ac.in")
+        {
+          alert("Welcome Admin")
+          window.location.href = 'adminpanel.html'; 
+        }
+        else{
+        location.replace("contact.html")
+        }
+
+        
+
+      } else {
+        document.getElementById('err_message').innerHTML = "Email not verified!";
+        console.log(document.getElementById('err_message'))
+        setTimeout(() => {
+          document.getElementById('err_message').innerHTML = '';
+        },2000)
+      }
+		  
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    console.log(errorMessage);
+		    if(errorMessage) {
+          document.getElementById('err_message').innerHTML = 'User not found!';
+          setTimeout(() => {
+            document.getElementById('err_message').innerHTML = '';
+          },2000)
+        }
+		  });		  		  
+	  });
+	
+	</script>
+</html>

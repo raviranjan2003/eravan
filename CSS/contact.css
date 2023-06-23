@@ -1,0 +1,169 @@
+body {
+    background-color: #d1f3e7;
+  }
+  
+  #title-Tag-Line {
+    font-size: 20px;
+  }
+  
+  .form {
+    background: rgb(255, 255, 255);
+    width: 100vw;
+    border-radius: 5px;
+    max-width: 480px;
+   
+  
+    left: 0;
+    right: 0;
+   
+  
+  
+  }
+  ::-webkit-input-placeholder {
+    font-size: 20px;
+  }
+  
+  .title{
+    display: block;
+    font-family: sans-serif;
+    margin: 10px auto 5px;
+    width: 500px;
+  }
+  
+  
+  .pageTitle{
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+  .secondaryTitle{
+    font-size:40px;;
+    color:rgb(4, 109, 40);
+    margin-left: 50px;
+  }
+  
+  .name {
+    background-color: #ebebeb;
+    color: rgb(9, 9, 9);
+    height: 60px;
+    border: 5px solid rgb(177, 55, 7);
+    border-radius: 25px;
+  }
+  .name:hover {
+    border: 5px solid rgb(177, 55, 7);
+    height: 60px;
+    width: 380px;
+    transition: ease 0.5s;
+    border-radius: 25px;
+  }
+  
+  .email {
+    background-color: #ebebeb;
+    height: 60px;
+    border: 5px solid rgb(177, 55, 7);
+    border: 5px solid rgb(177, 55, 7);
+    border-radius: 25px;
+  }
+  
+  .email:hover {
+    border: 5px solid rgb(177, 55, 7);
+    height: 60px;
+    width: 380px;
+    transition: ease 0.5s;
+    border-radius: 25px;
+  }
+  
+  .message {
+    background-color: #ebebeb;
+    overflow: hidden;
+    height: 220px;
+    
+    border: 5px solid rgb(177, 55, 7);
+    border-radius: 25px;
+  }
+  
+  .message:hover {
+    border: 5px solid rgb(177, 55, 7);
+    height: 320px;
+    width: 380px;
+    transition: ease 0.5s;
+    border-radius: 25px;
+  }
+  
+  .formEntry {
+    display: block;
+    margin: 30px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
+    border: 5px solid rgb(2, 76, 25);
+    border-radius: 25px;
+  }
+  
+  .submit {
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color:rgb(3, 90, 36);
+    font-size: 20px;
+    position: absolute;
+    right:  260;
+    bottom:   80;
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+  }
+  
+  .submit:hover {
+  
+    transform: translateY(-3px);
+    width: 300px;
+    position: absolute;
+    right:  200;
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+  }
+  #myDIV {
+    height:800px;
+    background-color:rgb(255, 255, 255);
+  }
+  #mymain {
+    width: 900%;
+    height: 800px;
+    display: flex;
+
+  
+  }
+  
+  #mymain div {
+    padding:5px;
+  }
+  
+  #whitediv {
+    flex: 0 1 800px;
+
+
+  }
+  #browndiv {
+    flex: 0 1 500px;
+    border-radius: 50px;
+  }
+  
+  .h4{
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+  }
+
+  
+  @media only screen and (max-width:320px){
+
+.h4{
+  font-size:4rem;
+}
+
+
+  }
+  
+  
+  
